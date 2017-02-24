@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+
+'''
+© 2017 Finn Bear All Rights 
+'''
+
 import re
 import csv
 
@@ -25,9 +31,9 @@ with open("../datasets/raw/sat_vocab.txt") as file:
     	# Add a comma after the definition
     	split_line[-2] += ','
 
-    	# Add a space to the end of each fragment, except the last
+    	# Add a space to the end of each fragment, except the firsts and lasts of each column (No longer necessary)
     	spaced_line = [fragment + ' ' for fragment in split_line]
-    	spaced_line[-1].strip()
+    	spaced_line[-1] = spaced_line[-1].rstrip()
 
     	# Convert back to a string
     	csv_line_string = ''.join(str(fragment) for fragment in spaced_line)
